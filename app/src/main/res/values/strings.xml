@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CopyPasteApplication</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fakeData">Navigation occurs between your app\'s destinations—that is, anywhere in your app to which users can navigate. These destinations are connected via actions. A navigation graph is a resource file that contains all of your destinations and actions. The graph represents all of your app\'s navigation paths. Figure 1 shows a visual representation of a navigation graph for a sample app containing six destinations connected by five actions. Each destination is represented by a preview thumbnail, and connecting actions are represented by arrows that show how users can navigate from one destination to another.</string>
 </resources>
