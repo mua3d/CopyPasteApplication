@@ -11,8 +11,7 @@
         android:theme="@style/Theme.CopyPasteApplication">
         <service
             android:name=".service.BackgroundService"
-            android:enabled="true"
-            android:exported="true"></service>
+            android:exported="false"/>
 
         <activity
             android:name=".MainActivity"

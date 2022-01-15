@@ -26,54 +26,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        clipBoardData = "hi"
-
-        val sharedPreferences= this.getSharedPreferences(clipBoardData,Context.MODE_PRIVATE)
-
-
-        binding.syncButton.setOnClickListener {
-            val startServiceIntent = Intent(this, BackgroundService::class.java)
-            startService(startServiceIntent)
-        }
 
         clipBoardManager = baseContext.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
         clipBoardData = clipBoardManager.primaryClip?.getItemAt(0)?.text?.toString()
 
-        binding.applyButton.setOnClickListener {
+        binding.showButton.setOnClickListener {
             clipBoardData = clipBoardManager.primaryClip?.getItemAt(0)?.text?.toString()
             binding.clipBoardData.text = clipBoardData
 
         }
 
-        clipBoardManager.addPrimaryClipChangedListener {
-            clipBoardData = clipBoardManager.primaryClip?.getItemAt(0)?.text?.toString()
-            binding.clipBoardData.text = clipBoardData
-        }
-
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-
-        if(clipBoardData.get == null) {
-                clipBoardData = clipBoardManager.primaryClip?.toString()
-                binding.clipBoardData.text = clipBoardData
-
-            }else
-                binding.clipBoardData.text = clipBoardData
-
-        Log.d(TAG,"data from clipboard : $clipBoardData")
-
-    }
-
-    override fun onPause() {
-        super.onPause()
-        val editor:SharedPreferences.Editor =  clipBoardData.edit()
-
-        editor.putString("data",data)
-        editor.apply()
-        editor.commit()
     }
 
 }
